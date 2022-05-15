@@ -1,2 +1,7 @@
-FROM nginx:latest
-COPY default.conf /etc/nginx/conf.d/default.conf
+FROM php:apache
+
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+RUN chmod +x /usr/local/bin/install-php-extensions && \
+    install-php-extensions mysqli
+
+ADD www /var/www/html

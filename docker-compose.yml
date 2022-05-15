@@ -7,22 +7,14 @@ services:
       - MARIADB_DATABASE=workhours
       - MARIADB_USER=user
       - MARIADB_PASSWORD=password
-    ports:
-      - 3306:3306
     restart: always
     volumes:
       - ./database-data:/var/lib/mysql
 
-  php:
-    build: php/
-    restart: always
-    volumes:
-      - ./web-data:/usr/share/nginx/html:ro
-
   web:
     build: web/
+    depends_on:
+      - database
     ports:
       - 80:80
     restart: always
-    volumes:
-      - ./web-data:/usr/share/nginx/html:ro
