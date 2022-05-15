@@ -22,7 +22,6 @@ services:
       - ./database-data:/var/lib/mysql
 
   web:
-    build: web/
     depends_on:
       - database
 #    environment:
