@@ -1,10 +1,10 @@
 <?php
-    $database_server="database";
-    $database_table="workhours";
-    $database_user="user";
-    $database_password="password";
+    $database_server=getenv("DATABASE_SERVER");
+    $database_database=getenv("DATABASE_DATABASE");
+    $database_user=getenv("DATABASE_USER");
+    $database_password=getenv("DATABASE_PASSWORD");
 
-    $database = new mysqli($database_server, $database_user, $database_password, $database_table);
+    $database = new mysqli($database_server, $database_user, $database_password, $database_database);
     if ($database->connect_errno) {
         throw new RuntimeException('mysqli connection error: ' . $mysqli->connect_error);
     }

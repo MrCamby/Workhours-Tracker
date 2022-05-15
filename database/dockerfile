@@ -1,2 +1,6 @@
 FROM mariadb
 COPY initial.sql /docker-entrypoint-initdb.d/initial.sql
+
+ENV MARIADB_DATABASE="workhours"
+ENV MARIADB_USER="user"
+ENV MARIADB_PASSWORD="password"

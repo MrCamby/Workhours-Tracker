@@ -5,3 +5,8 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions mysqli
 
 ADD www /var/www/html
+
+ENV DATABASE_SERVER="database"
+ENV DATABASE_DATABASE="workhours"
+ENV DATABASE_USER="user"
+ENV DATABASE_PASSWORD="password"
